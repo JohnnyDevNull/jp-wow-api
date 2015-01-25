@@ -6,7 +6,7 @@ Please read the "Legal Faq" from the bilzzard homepage first before you use this
 
 This means not, that this package is restricted from blizzard, but be careful with their rights to avoid any misunderstoods.
 
-Notice that blizzard have a request limit in their api. If you need a higher limit you have to register your application here: [dev.battle.net](https://dev.battle.net/) and offer an authoriziation key.
+Notice that blizzard have a request limit in their api. If you need a higher limit you have to register your application here: [dev.battle.net](https://dev.battle.net/) and order an authoriziation key.
 
 ### Features
 
@@ -81,7 +81,7 @@ $wow->getDataResourcePetTypes();
 
 ### Authentification
 
-If you want to use the authentification feature of this package you have only to inject a jpWoWAuthentification object with the private key. The private function from jpWoW::_performRequest() does than the setup for every call for you.
+If you want to use the authentification feature of this package you have only to inject a jpWoWAuthentification object with the private key. The private function from jpWoW::_performRequest() does then the setup for every call for you.
 
 <pre><code class="php">
 $region = new jpWoWRegion('europe', 'de_DE');
