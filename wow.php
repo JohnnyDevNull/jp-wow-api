@@ -74,8 +74,6 @@ class jpWoW
 
 		$url .= 'locale='.$this->_region->getLocale();
 
-		var_dump($url);
-
 		$cr = curl_init();
 		curl_setopt($cr, CURLOPT_URL, $url);
 		curl_setopt($cr, CURLOPT_RETURNTRANSFER, 1);
