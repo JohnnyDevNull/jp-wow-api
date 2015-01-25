@@ -10,11 +10,9 @@
 		$region = new jpWoWRegion('europe', 'de_DE');
 		$wow = new jpWoW($region);
 
-		$charName = "Fire";
-		$realm = "Blackmoore";
-		$guildName = 'I Pain Inc I';
-
-		var_dump(rawurlencode("Ich bin Toll'er"));
+		$charName = "Your character name";
+		$realm = "Your realm name";
+		$guildName = 'Your guild name';
 
 		?>
 		<p>Region: <?=$region->getRegion()?></p>
