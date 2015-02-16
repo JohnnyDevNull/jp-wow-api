@@ -28,6 +28,21 @@ class jpWoW
 	private $_authentication;
 
 	/**
+	 * @var bool
+	 */
+	private $_decodeResult = true;
+
+	/**
+	 * Set to false if you wand that the class returns the data in raw json instead of an array.
+	 *
+	 * @param bool $val
+	 */
+	public function setDecodeResult($val)
+	{
+		$this->_decodeResult = (bool)$val;
+	}
+
+	/**
 	 * @param jpWoWregion $region
 	 * @param jpWoWAuthentication $auth
 	 */
@@ -54,7 +69,7 @@ class jpWoW
 	 * @param string $subPath
 	 * @return mixed
 	 */
-	private function _performRequest($subPath, $jsonencode = true)
+	private function _performRequest($subPath)
 	{
 		$urlPath = '/api/wow/'.$subPath;
 
@@ -81,7 +96,7 @@ class jpWoW
 		curl_close($cr);
 
 		if (
-			$jsonencode
+			$this->_decodeResult
 			&& strpos($output, '{') !== false
 			&& strpos($output, '}') !== false
 		) {
