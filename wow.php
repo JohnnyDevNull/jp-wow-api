@@ -860,6 +860,7 @@ class jpWoW
 
 	/**
 	 * @param string $value
+	 * @return string
 	 */
 	public function getItemColor($value) 
 	{
