@@ -60,6 +60,7 @@
 			//var_dump($wow->getItemSet(1060));
 
 			//var_dump($wow->getGuild($guildName, $realm));
+			//var_dump($wow->getGuildNews($guildName, $realm));
 			//var_dump($wow->getGuildAllFields($guildName, $realm));
 			//var_dump($wow->getGuildMembers('$guildName', $realm));
 			//var_dump($wow->getGuildNews('$guildName', $realm));

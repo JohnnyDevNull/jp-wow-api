@@ -857,4 +857,31 @@ class jpWoW
 
 		return $path;
 	}
+
+	/**
+	 * @param string $value
+	 */
+	public function getItemColor($value) 
+	{
+		$ret = '';
+
+		switch ($value) {
+			case 1: $ret = "ffffff"; //White
+				break;
+
+			case 2: $ret = "1eff00"; //Green
+				break;
+
+			case 3: $ret = "0070dd"; //Blue
+				break;
+
+			case 4: $ret = "a335ee"; //Purple
+				break;
+
+			case 5: $ret = "ff8000"; //Orange
+				break;
+
+			default: $ret = "9d9d9d"; //Grey
+		}
+	}
 }
