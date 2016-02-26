@@ -6,13 +6,13 @@ Please read the "Legal Faq" from the bilzzard homepage first before you use this
 
 This means not, that this package is restricted from blizzard, but be careful with their rights to avoid any misunderstoods.
 
-Notice that blizzard have a request limit in their api. If you need a higher limit you have to register your application here: [dev.battle.net](https://dev.battle.net/) and order an authoriziation key.
+Notice that you have to register your application here: [dev.battle.net](https://dev.battle.net/) and order an authoriziation key to use the api.
 
 ### Features
 
 There are all Api calls from the official web api documentation implemented. See there for more informations:
 
-[blizzard.github.io/api-wow-docs](http://blizzard.github.io/api-wow-docs/)
+[dev.battle.net/io-docs](https://dev.battle.net/io-docs)
 
 **Complete Call Example:**
 <pre><code class="php">
@@ -21,16 +21,19 @@ include_once './wow.php';
 
 $region = new jpWoWRegion('europe', 'de_DE');
 $wow = new jpWoW($region);
+$wow->setApiKey('Your API Key');
 
-$charName = 'Your character name';
-$realm = 'Realm';
+$charName = "Your character name";
+$realm = "Your realm name";
 $guildName = 'Your guild name';
 
 $wow->getAchievment(2144);
 $wow->getAuction($realm);
-$wow->getBattlePetAbility(640);
-$wow->getBattlePetSpecies(258);
-$wow->getBattlePetStats(258,25,5,4);
+$wow->getBoss(24723);
+$wow->getPetList();
+$wow->getPetAbility(640);
+$wow->getPetSpecies(258);
+$wow->getPetStats(258, 25, 5, 4);
 $wow->getChallangeMode($realm);
 $wow->getCharacter($charName, $realm);
 $wow->getCharacterAllFields($charName, $realm);
@@ -43,11 +46,11 @@ $wow->getCharacterItems($charName, $realm);
 $wow->getCharacterMounts($charName, $realm);
 $wow->getCharacterPets($charName, $realm);
 $wow->getCharacterPetSlots($charName, $realm);
-$wow->getCharacterProfessions($charName, $realm);
 $wow->getCharacterProgression($charName, $realm);
 $wow->getCharacterPvp($charName, $realm);
 $wow->getCharacterQuests($charName, $realm);
 $wow->getCharacterReputation($charName, $realm);
+$wow->getCharacterStatistics($charName, $realm);
 $wow->getCharacterStats($charName, $realm);
 $wow->getCharacterTalents($charName, $realm);
 $wow->getCharacterTitles($charName, $realm);
@@ -55,7 +58,8 @@ $wow->getCharacterAudit($charName, $realm);
 $wow->getItem(18803);
 $wow->getItemSet(1060);
 $wow->getGuild($guildName, $realm);
-$wow->getGuildAllFields($guildName, $realm)
+$wow->getGuildNews($guildName, $realm);
+$wow->getGuildAllFields($guildName, $realm);
 $wow->getGuildMembers('$guildName', $realm);
 $wow->getGuildNews('$guildName', $realm);
 $wow->getGuildChallenge('$guildName', $realm);
@@ -67,6 +71,8 @@ $wow->getQuest(13146);
 $wow->getRealmStatus();
 $wow->getRecipe(33994);
 $wow->getSpell(8056);
+$wow->getZoneList();
+$wow->getSpell(4131);
 $wow->getDataResourceBattlegroups();
 $wow->getDataResourceCharacterRaces();
 $wow->getDataResourceCharacterClasses();
@@ -81,6 +87,8 @@ $wow->getDataResourcePetTypes();
 
 ### Authentification
 
+NOTICE: Not tested with actual api version.
+
 If you want to use the authentification feature of this package you have only to inject a jpWoWAuthentification object with the private key. The private function from jpWoW::_performRequest() does then the setup for every call for you.
 
 <pre><code class="php">
@@ -90,4 +98,4 @@ $auth->setPrivateKey('MyPrivateKey');
 $wow = new jpWoW($region, $auth);
 </code></pre>
 
-For more details see: [blizzard.github.io/api-wow-docs/#features/authentication](http://blizzard.github.io/api-wow-docs/#features/authentication)
+For more details see: [dev.battle.net/io-docs](https://dev.battle.net/io-docs)
