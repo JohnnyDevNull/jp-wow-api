@@ -173,12 +173,33 @@ class jpWoW
 	}
 
 	/**
+	 * @param string $bossID
+	 * @return mixed
+	 */
+	public function getBoss($bossID)
+	{
+		$subUrl = 'boss/'.$bossID;
+
+		return $this->_performRequest($subUrl);
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getPetList()
+	{
+		$subUrl = 'pet/';
+
+		return $this->_performRequest($subUrl);
+	}
+
+	/**
 	 * @param int $abilityID
 	 * @return mixed
 	 */
-	public function getBattlePetAbility($abilityID)
+	public function getPetAbility($abilityID)
 	{
-		$subUrl = 'battlePet/ability/'.(int)$abilityID;
+		$subUrl = 'pet/ability/'.(int)$abilityID;
 
 		return $this->_performRequest($subUrl);
 	}
@@ -187,9 +208,9 @@ class jpWoW
 	 * @param int $speciesID
 	 * @return mixed
 	 */
-	public function getBattlePetSpecies($speciesID)
+	public function getPetSpecies($speciesID)
 	{
-		$subUrl = 'battlePet/species/'.(int)$speciesID;
+		$subUrl = 'pet/species/'.(int)$speciesID;
 
 		return $this->_performRequest($subUrl);
 	}
@@ -201,7 +222,7 @@ class jpWoW
 	 * @param int $qualityId
 	 * @return mixed
 	 */
-	public function getBattlePetStats($speciesID, $level = null, $breedId = null, $qualityId = null)
+	public function getPetStats($speciesID, $level = null, $breedId = null, $qualityId = null)
 	{
 		$params = array();
 
@@ -217,7 +238,7 @@ class jpWoW
 			$params[] = 'qualtityId='.(int)$qualityId;
 		}
 
-		$subUrl = 'battlePet/stats/'.(int)$speciesID;
+		$subUrl = 'pet/stats/'.(int)$speciesID;
 
 		if(!empty($params)) {
 			$subUrl .= '?'.implode('&', $params);
@@ -269,11 +290,11 @@ class jpWoW
 			'mounts',
 			'pets',
 			'petSlots',
-			'professions',
 			'progression',
 			'pvp',
 			'quests',
 			'reputation',
+			'statistics',
 			'stats',
 			'talents',
 			'titles',
@@ -427,21 +448,6 @@ class jpWoW
 	 * @param string $realm
 	 * @return mixed
 	 */
-	public function getCharacterProfessions($charName, $realm)
-	{
-		$subUrl = 'character/'
-				. rawurlencode($realm).'/'
-				. rawurlencode($charName)
-				. '?fields=professions';
-
-		return $this->_performRequest($subUrl);
-	}
-
-	/**
-	 * @param string $charName
-	 * @param string $realm
-	 * @return mixed
-	 */
 	public function getCharacterProgression($charName, $realm)
 	{
 		$subUrl = 'character/'
@@ -496,6 +502,21 @@ class jpWoW
 
 		return $this->_performRequest($subUrl);
 	}
+
+	/**
+	 * @param string $charName
+	 * @param string $realm
+	 * @return mixed
+	 */
+	public function getCharacterStatistics($charName, $realm)
+	{
+		$subUrl = 'character/'
+				. rawurlencode($realm).'/'
+				. rawurlencode($charName)
+				. '?fields=statistics';
+
+		return $this->_performRequest($subUrl);
+	}	
 
 	/**
 	 * @param string $charName
@@ -754,6 +775,27 @@ class jpWoW
 	public function getSpell($spellID)
 	{
 		$subUrl = 'spell/'.(int)$spellID;
+
+		return $this->_performRequest($subUrl);
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getZoneList()
+	{
+		$subUrl = 'zone/';
+
+		return $this->_performRequest($subUrl);
+	}
+
+	/**
+	 * @param int $zoneID
+	 * @return mixed
+	 */
+	public function getZone($zoneID)
+	{
+		$subUrl = 'zone/'.(int)$zoneID;
 
 		return $this->_performRequest($subUrl);
 	}

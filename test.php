@@ -1,3 +1,4 @@
+<?php ini_set('max_execution_time', 300); ?>
 <!DOCTYPE html>
 <html>
     <head><meta charset="UTF-8"><title>jpWoW Api Examples</title></head>
@@ -31,12 +32,14 @@
 
 			//print_r($wow->getAchievment(2144));
 			//print_r($wow->getAuction($realm));
-			//print_r($wow->getBattlePetAbility(640));
-			//print_r($wow->getBattlePetSpecies(258));
-			//print_r($wow->getBattlePetStats(258,25,5,4))
+			//print_r($wow->getBoss(24723));
+			//print_r($wow->getPetList());
+			//print_r($wow->getPetAbility(640));
+			//print_r($wow->getPetSpecies(258));
+			//print_r($wow->getPetStats(258, 25, 5, 4))
 
 			//print_r($wow->getChallangeMode($realm));
-			print_r($wow->getCharacter($charName, $realm));
+			//print_r($wow->getCharacter($charName, $realm));
 			//print_r($wow->getCharacterAllFields($charName, $realm));
 			//print_r($wow->getCharacterAchievements($charName, $realm));
 			//print_r($wow->getCharacterAppearance($charName, $realm));
@@ -47,11 +50,11 @@
 			//print_r($wow->getCharacterMounts($charName, $realm));
 			//print_r($wow->getCharacterPets($charName, $realm));
 			//print_r($wow->getCharacterPetSlots($charName, $realm));
-			//print_r($wow->getCharacterProfessions($charName, $realm));
 			//print_r($wow->getCharacterProgression($charName, $realm));
 			//print_r($wow->getCharacterPvp($charName, $realm));
 			//print_r($wow->getCharacterQuests($charName, $realm));
 			//print_r($wow->getCharacterReputation($charName, $realm));
+			//print_r($wow->getCharacterStatistics($charName, $realm));
 			//print_r($wow->getCharacterStats($charName, $realm));
 			//print_r($wow->getCharacterTalents($charName, $realm));
 			//print_r($wow->getCharacterTitles($charName, $realm));
@@ -76,6 +79,9 @@
 			//print_r($wow->getRealmStatus());
 			//print_r($wow->getRecipe(33994));
 			//print_r($wow->getSpell(8056));
+
+			//print_r($wow->getZoneList());
+			//print_r($wow->getSpell(4131));
 
 			//print_r($wow->getDataResourceBattlegroups());
 			//print_r($wow->getDataResourceCharacterRaces());
