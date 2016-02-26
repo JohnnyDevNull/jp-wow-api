@@ -18,6 +18,11 @@
 class jpWoW
 {
 	/**
+	 * @var string
+	 */
+	private $_apiKey;
+
+	/**
 	 * @var jpWoWregion
 	 */
 	private $_region;
@@ -31,6 +36,14 @@ class jpWoW
 	 * @var bool
 	 */
 	private $_decodeResult = true;
+
+	/**
+	 * @param string $key
+	 */
+	public function setApiKey($key)
+	{
+		$this->_apiKey = (string)$key;
+	}
 
 	/**
 	 * Set to false if you wand that the class returns the data in raw json instead of an array.
@@ -71,7 +84,7 @@ class jpWoW
 	 */
 	private function _performRequest($subPath)
 	{
-		$urlPath = '/api/wow/'.$subPath;
+		$urlPath = '/wow/'.$subPath;
 
 		if($this->_authentication !== false) {
 			$this->_authentication->setHost($this->_region->getHost());
@@ -79,7 +92,7 @@ class jpWoW
 			$this->_authentication->setUrlPath($urlPath);
 		}
 
-		$url = $this->_region->getHost().$urlPath;
+		$url = 'https://'.$this->_region->getHost().$urlPath;
 
 		if(strpos($url, '?') !== false) {
 			$url .= '&';
@@ -87,21 +100,35 @@ class jpWoW
 			$url .= '?';
 		}
 
-		$url .= 'locale='.$this->_region->getLocale();
+		$url .= 'locale='.$this->_region->getLocale()
+			  . '&apikey='.$this->_apiKey;
 
 		$cr = curl_init();
 		curl_setopt($cr, CURLOPT_URL, $url);
+		curl_setopt($cr, CURLOPT_SSL_VERIFYPEER, 0);
 		curl_setopt($cr, CURLOPT_RETURNTRANSFER, 1);
 		$output = curl_exec($cr);
+
+		if($output === false) {
+			$output = array (
+				'errorno' => curl_errno($cr),
+				'error' => curl_error($cr),
+			);
+		}
+
 		curl_close($cr);
 
 		if (
 			$this->_decodeResult
+			&& !is_array($output)
 			&& strpos($output, '{') !== false
 			&& strpos($output, '}') !== false
 		) {
 			return json_decode($output, true);
 		} else {
+			if(is_array($output)) {
+				$output = json_encode($output);
+			}
 			return $output;
 		}
 	}

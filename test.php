@@ -9,6 +9,7 @@
 
 		$region = new jpWoWRegion('europe', 'de_DE');
 		$wow = new jpWoW($region);
+		$wow->setApiKey('Your API Key');
 
 		$charName = "Your character name";
 		$realm = "Your realm name";
@@ -25,69 +26,69 @@
 		<p>IconsPath 36: <?=$wow->getIconsPath(36)?></p>
 		<p>IconsPath 56: <?=$wow->getIconsPath(56)?></p>
 		<br>
-		<p>Api-Test-Calls:<br><br>
+		<p>Api-Test-Calls:<br><br><pre>
 			<?php
 
-			//var_dump($wow->getAchievment(2144));
-			//var_dump($wow->getAuction($realm));
-			//var_dump($wow->getBattlePetAbility(640));
-			//var_dump($wow->getBattlePetSpecies(258));
-			//var_dump($wow->getBattlePetStats(258,25,5,4))
+			//print_r($wow->getAchievment(2144));
+			//print_r($wow->getAuction($realm));
+			//print_r($wow->getBattlePetAbility(640));
+			//print_r($wow->getBattlePetSpecies(258));
+			//print_r($wow->getBattlePetStats(258,25,5,4))
 
-			//var_dump($wow->getChallangeMode($realm));
-			//var_dump($wow->getCharacter($charName, $realm));
-			//var_dump($wow->getCharacterAllFields($charName, $realm));
-			//var_dump($wow->getCharacterAchievements($charName, $realm));
-			//var_dump($wow->getCharacterAppearance($charName, $realm));
-			//var_dump($wow->getCharacterFeed($charName, $realm));
-			//var_dump($wow->getCharacterGuild($charName, $realm));
-			//var_dump($wow->getCharacterHunterPets($charName, $realm));
-			//var_dump($wow->getCharacterItems($charName, $realm));
-			//var_dump($wow->getCharacterMounts($charName, $realm));
-			//var_dump($wow->getCharacterPets($charName, $realm));
-			//var_dump($wow->getCharacterPetSlots($charName, $realm));
-			//var_dump($wow->getCharacterProfessions($charName, $realm));
-			//var_dump($wow->getCharacterProgression($charName, $realm));
-			//var_dump($wow->getCharacterPvp($charName, $realm));
-			//var_dump($wow->getCharacterQuests($charName, $realm));
-			//var_dump($wow->getCharacterReputation($charName, $realm));
-			//var_dump($wow->getCharacterStats($charName, $realm));
-			//var_dump($wow->getCharacterTalents($charName, $realm));
-			//var_dump($wow->getCharacterTitles($charName, $realm));
-			//var_dump($wow->getCharacterAudit($charName, $realm));
+			//print_r($wow->getChallangeMode($realm));
+			print_r($wow->getCharacter($charName, $realm));
+			//print_r($wow->getCharacterAllFields($charName, $realm));
+			//print_r($wow->getCharacterAchievements($charName, $realm));
+			//print_r($wow->getCharacterAppearance($charName, $realm));
+			//print_r($wow->getCharacterFeed($charName, $realm));
+			//print_r($wow->getCharacterGuild($charName, $realm));
+			//print_r($wow->getCharacterHunterPets($charName, $realm));
+			//print_r($wow->getCharacterItems($charName, $realm));
+			//print_r($wow->getCharacterMounts($charName, $realm));
+			//print_r($wow->getCharacterPets($charName, $realm));
+			//print_r($wow->getCharacterPetSlots($charName, $realm));
+			//print_r($wow->getCharacterProfessions($charName, $realm));
+			//print_r($wow->getCharacterProgression($charName, $realm));
+			//print_r($wow->getCharacterPvp($charName, $realm));
+			//print_r($wow->getCharacterQuests($charName, $realm));
+			//print_r($wow->getCharacterReputation($charName, $realm));
+			//print_r($wow->getCharacterStats($charName, $realm));
+			//print_r($wow->getCharacterTalents($charName, $realm));
+			//print_r($wow->getCharacterTitles($charName, $realm));
+			//print_r($wow->getCharacterAudit($charName, $realm));
 
-			//var_dump($wow->getItem(18803));
-			//var_dump($wow->getItemSet(1060));
+			//print_r($wow->getItem(18803));
+			//print_r($wow->getItemSet(1060));
 
-			//var_dump($wow->getGuild($guildName, $realm));
-			//var_dump($wow->getGuildNews($guildName, $realm));
-			//var_dump($wow->getGuildAllFields($guildName, $realm));
-			//var_dump($wow->getGuildMembers('$guildName', $realm));
-			//var_dump($wow->getGuildNews('$guildName', $realm));
-			//var_dump($wow->getGuildChallenge('$guildName', $realm));
+			//print_r($wow->getGuild($guildName, $realm));
+			//print_r($wow->getGuildNews($guildName, $realm));
+			//print_r($wow->getGuildAllFields($guildName, $realm));
+			//print_r($wow->getGuildMembers('$guildName', $realm));
+			//print_r($wow->getGuildNews('$guildName', $realm));
+			//print_r($wow->getGuildChallenge('$guildName', $realm));
 
-			//var_dump($wow->getLeaderboard2v2());
-			//var_dump($wow->getLeaderboard3v3());
-			//var_dump($wow->getLeaderboard5v5());
-			//var_dump($wow->getLeaderboardRbg());
+			//print_r($wow->getLeaderboard2v2());
+			//print_r($wow->getLeaderboard3v3());
+			//print_r($wow->getLeaderboard5v5());
+			//print_r($wow->getLeaderboardRbg());
 
-			//var_dump($wow->getQuest(13146));
-			//var_dump($wow->getRealmStatus());
-			//var_dump($wow->getRecipe(33994));
-			//var_dump($wow->getSpell(8056));
+			//print_r($wow->getQuest(13146));
+			//print_r($wow->getRealmStatus());
+			//print_r($wow->getRecipe(33994));
+			//print_r($wow->getSpell(8056));
 
-			//var_dump($wow->getDataResourceBattlegroups());
-			//var_dump($wow->getDataResourceCharacterRaces());
-			//var_dump($wow->getDataResourceCharacterClasses());
-			//var_dump($wow->getDataResourceCharacterAchievements());
-			//var_dump($wow->getDataResourceGuildRewards());
-			//var_dump($wow->getDataResourceGuildPerks());
-			//var_dump($wow->getDataResourceGuildAchievements());
-			//var_dump($wow->getDataResourceItemClasses());
-			//var_dump($wow->getDataResourceTalents());
-			//var_dump($wow->getDataResourcePetTypes());
+			//print_r($wow->getDataResourceBattlegroups());
+			//print_r($wow->getDataResourceCharacterRaces());
+			//print_r($wow->getDataResourceCharacterClasses());
+			//print_r($wow->getDataResourceCharacterAchievements());
+			//print_r($wow->getDataResourceGuildRewards());
+			//print_r($wow->getDataResourceGuildPerks());
+			//print_r($wow->getDataResourceGuildAchievements());
+			//print_r($wow->getDataResourceItemClasses());
+			//print_r($wow->getDataResourceTalents());
+			//print_r($wow->getDataResourcePetTypes());
 
 			?>
-		</p>
+		</pre></p>
     </body>
 </html>

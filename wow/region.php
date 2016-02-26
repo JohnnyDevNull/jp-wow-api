@@ -23,7 +23,7 @@ class jpWoWRegion
 	private $_regionConfig = array
 	(
 		'us' => array (
-			'host' => 'us.battle.net',
+			'host' => 'us.api.battle.net',
 			'locale' => array (
 				'en_US',
 				'es_MX',
@@ -31,7 +31,7 @@ class jpWoWRegion
 			)
 		),
 		'europe' => array (
-			'host' => 'eu.battle.net',
+			'host' => 'eu.api.battle.net',
 			'locale' => array (
 				'en_GB',
 				'es_ES',
@@ -43,19 +43,25 @@ class jpWoWRegion
 			)
 		),
 		'korea' => array (
-			'host' => 'kr.battle.net',
+			'host' => 'kr.api.battle.net',
 			'locale' => array (
 				'ko_KR',
 			)
 		),
 		'taiwan' => array (
-			'host' => 'tw.battle.net',
+			'host' => 'tw.api.battle.net',
 			'locale' => array (
 				'zh_TW',
 			)
 		),
 		'china' => array (
-			'host' => 'www.battlenet.com.cn',
+			'host' => 'api.battlenet.com.cn',
+			'locale' => array (
+				'zh_CN'
+			)
+		),
+		'asian' => array (
+			'host' => 'sea.api.battle.net',
 			'locale' => array (
 				'zh_CN'
 			)
