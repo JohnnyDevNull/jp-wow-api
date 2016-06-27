@@ -1,4 +1,4 @@
-### Introducton
+### Introduction
 
 This is a free, none commercial community package that allows to communicate with the public blizzard wow web api in an abstract way. Community package means, that this package is developed for the community and by my selfe without any profit.
 
